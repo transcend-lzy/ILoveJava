@@ -44,8 +44,24 @@ public class BasicKnowledgePoints {
                 case 4:
                     System.out.println(a);
             }
+
         }
 
+    }
+    @Test
+    public void test2(){
+        for(int j = 1; j <= 4; j++){
+            for(int i = 1; i <= 6;i++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        int num;
+        num =10 ;
+        int id = 1001;
+        int[] ids;
+        ids = new int[]{1,2,3,4,5};
+        String[] names = new String[5];
     }
 
 }

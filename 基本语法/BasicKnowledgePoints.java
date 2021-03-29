@@ -62,6 +62,9 @@ public class BasicKnowledgePoints {
         int[] ids;
         ids = new int[]{1,2,3,4,5};
         String[] names = new String[5];
+        for (int i =0 ; i<ids.length ;i++){
+            System.out.println(ids[i]);
+        }
     }
 
 }

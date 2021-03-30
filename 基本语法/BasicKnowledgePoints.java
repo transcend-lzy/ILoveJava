@@ -60,10 +60,32 @@ public class BasicKnowledgePoints {
         num =10 ;
         int id = 1001;
         int[] ids;
-        ids = new int[]{1,2,3,4,5};
-        String[] names = new String[5];
-        for (int i =0 ; i<ids.length ;i++){
-            System.out.println(ids[i]);
+        ids = new int[]{1,2,3,4,5};//静态初始化
+        String[] names = new String[5]; //动态初始化
+        int [][] arr1 = new int[][]{{1,2,3},{3,4},{5,7},{2,3,4,5,56,34}};
+        //静态初始化
+        String[][] names1 = new String[1][2];
+        //动态初始化
+        System.out.println(arr1.length);
+        int[][] arr123 = new int[3][4];
+    }
+    @Test
+    //重载
+    public void  getsum(int i , int j){
+        System.out.println("1");
+    }
+    public void  getsum(int i,double j){
+        System.out.println("2");
+    }
+    public void  getsum(String s){
+        System.out.println("3");
+    }
+    //可变个数形参 jdk5新增
+    @Test
+    public void show(String ... strs){
+        System.out.println("show(string...strs)");
+        for (int i = 0 ;i<strs.length;i++){
+            System.out.println(strs[i]);
         }
     }
 

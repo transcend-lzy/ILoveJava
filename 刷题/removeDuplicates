@@ -1,0 +1,16 @@
+public int removeDuplicates(int[] nums) {
+        int current_num1 = 100000;
+        int indexCurrent = 0;
+        int indexFinal = -1;
+
+        for (int i =0;i<nums.length;i++){
+            if(nums[i] != current_num1){
+                current_num1 = nums[i];
+                indexFinal ++;
+                nums[indexFinal] = current_num1;
+            }
+        }
+
+        return indexFinal+1;
+    }
+}

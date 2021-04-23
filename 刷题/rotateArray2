@@ -1,0 +1,18 @@
+class Solution {
+    private int temp;
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        this.reverse(0,nums.length-1,nums);
+        this.reverse(0,k-1,nums);
+        this.reverse(k,nums.length-1,nums);
+    }
+    void reverse(int start,int end,int[] nums){
+        while(start < end){
+            temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            end--;
+            start++;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        reverse(digits);
+        digits[0]++;
+        int i = 0;
+        while(digits[i] == 10){
+            digits[i] = 0;
+            i++;
+            if (i == digits.length){
+                return creatArray(++i);
+            }else{
+                digits[i]++;
+            }
+        }
+        reverse(digits);
+        return digits;  
+    }
+    public void reverse(int[] digits){  //数组颠倒，让个位数先加一
+        int start = 0;
+        int end = digits.length-1;
+        int temp;
+        while(start < end){
+            temp = digits[start];
+            digits[start] = digits[end];
+            digits[end] = temp;
+            end--;
+            start++;
+        }
+    }
+    public int[] creatArray(int len){   //面向9999这种数，要重新生成一个新的数组来保存
+        int[] arrayCreated = new int[len];
+        arrayCreated[0] = 1;
+        return arrayCreated;
+    }
+}

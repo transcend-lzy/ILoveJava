@@ -1,0 +1,43 @@
+public class RotateImage{
+public static void main(String[] args) {
+Solution solution = new RotateImage().new Solution();
+    int[][] matrix = new int[][]{{1,2},{3,4}};
+    solution.rotate(matrix);
+ }
+
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
+    int temp;
+    public void rotate(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for(int j = matrix.length-1;j>i; j--){
+                temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        for(int i = 0; i < matrix.length; i++){
+            reverse(matrix[i]);
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            for(int j = 0;j<matrix.length; j++){
+                System.out.println(matrix[i][j]);
+            }
+        }
+    }
+    private void reverse(int[] array){
+        int start = 0;
+        int end = array.length-1;
+        while (start < end){
+            temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+//leetcode submit region end(Prohibit modification and deletion)
+
+}

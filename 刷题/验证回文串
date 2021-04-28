@@ -1,0 +1,37 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        int start = 0;
+        int end = s.length()-1;
+        char[] chars = new char[s.length()];
+        chars = s.toCharArray();
+        while (start < end){
+            byte headword = normLetter((byte)chars[start]);
+            byte endword = normLetter((byte)chars[end]);
+
+            while (!((headword > 47 && headword < 58)||(headword > 96 && headword < 123))){
+                start++;
+                if (start == s.length()){
+                    return true;
+                }
+                headword = normLetter((byte)chars[start]);
+            }
+            while (!((endword > 47 && endword < 58)||(endword > 96 && endword < 123))){
+                end--;
+                endword = normLetter((byte)chars[end]);
+            }
+
+            if (normLetter((byte)chars[start]) != normLetter((byte)chars[end])){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    private byte normLetter(byte word){
+        if (word > 64 && word < 91){
+            word += 32;
+        }
+        return word;
+    }
+}

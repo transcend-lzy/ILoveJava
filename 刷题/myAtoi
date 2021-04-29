@@ -1,0 +1,69 @@
+class Solution {
+    public int myAtoi(String s) {
+        int start = 0;
+        boolean isfushu = false;
+        boolean isyoukongge = false;
+        int end;
+        char[] chars = new char[s.length()];
+        chars = s.toCharArray();
+        if (s.length() == 0){
+            return 0;
+        }
+        
+        while (start < s.length()-1 && (chars[start] == ' ' || chars[start] == '0')){
+            start++;
+        }
+        if (start < s.length()-1 && chars[start] == '-'){
+            if (start > 0 && chars[start-1] != ' '){
+                return 0;
+            }
+            isfushu = true;
+            start++;
+        }else if(start < s.length()-1 && chars[start] == '+'){
+            if (start > 0  && chars[start-1] != ' '){
+                return 0;
+            }
+            start++;
+        }
+        if(start == s.length()){
+            return 0;
+        }
+        end = start;
+        if (!((byte)chars[end] > 47 && (byte)chars[end] < 58)){
+            System.out.println("没有读取到数字");
+            return 0;
+        }
+        while (((byte)chars[end] > 47 && (byte)chars[end] < 58) && end < s.length()-1){
+            end++;
+        }
+        if (!((byte)chars[end] > 47 && (byte)chars[end] < 58)){
+            end--;
+        }
+        //    System.out.println(isfushu);
+        //    System.out.println(start);
+        //    System.out.println(end);
+        char[] newChars;
+        if (isfushu){
+            newChars = Arrays.copyOfRange(chars,start-1,end+1);
+        }else{
+            newChars = Arrays.copyOfRange(chars,start,end+1);
+        }
+        String newStr = new String(newChars);
+        System.out.println(newStr);
+        if(newStr.length() > 13 ){
+            if (isfushu){
+                return -2147483648;
+            }else{
+                return 2147483647;
+            }
+        }
+        long longNum = Long.parseLong(newStr);
+        if (longNum > 2147483647){
+            return 2147483647;
+        }else if(longNum < -2147483648){
+            return -2147483648;
+        }else{
+            return (int)longNum;
+        }
+    }
+}

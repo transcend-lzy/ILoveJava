@@ -1,0 +1,42 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        if (needle.length() == 0){
+            return 0;
+        }
+        if (needle.length() > haystack.length()){
+            return -1;
+        }
+        System.out.println(haystack.length());
+        int head = 0;
+        int len = 0;
+        int headcurrent = 0;
+        boolean isbreak = false;
+        char[] chars = haystack.toCharArray();
+        char[] needles = needle.toCharArray();
+        while (head < haystack.length()){
+            System.out.println(chars[head]);
+            if (chars[head] == needles[0]){
+                headcurrent = head;
+                for (int i = 0; i < needle.length() ; i++) {
+                    System.out.println("进入循环"+needles[i]);
+                    System.out.println(head);
+                    if ( head >= haystack.length() || chars[head] != needles[i]){
+                        isbreak = true;
+                        break;
+                    }
+                    head++;
+                }
+                if(isbreak == false){
+                    return headcurrent;
+                }else{
+                    isbreak = false;
+                    headcurrent++;
+                    head = headcurrent;
+                }
+            }else{
+                head++;
+            }
+        }
+        return -1;
+    }
+}

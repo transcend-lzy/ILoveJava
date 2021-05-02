@@ -4,6 +4,8 @@ package com.chaoyue.java;
  * @author chaoyue
  * @data2021-04-27 15:30
  */
+//冒泡排序（Bubble Sorting）的基本思想是：通过对待排序序列从前向后（从下标较小的元素开始）,依次比较
+//相邻元素的值，若发现逆序则交换，使值较大的元素逐渐从前移向后部，就象水底下的气泡一样逐渐向上冒。
 public class MaoPao {
     public static void main(String[] args) {
         MaoPao maoPao = new MaoPao();

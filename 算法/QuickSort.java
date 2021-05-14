@@ -1,7 +1,7 @@
 package com.chaoyue.java;
 
 import javax.xml.stream.events.StartDocument;
-
+//找基准，递归排序，更新头尾--找基准，递归排序，更新头尾--直到尾比头小
 /**
  * @author chaoyue
  * @data2021-05-14 21:31

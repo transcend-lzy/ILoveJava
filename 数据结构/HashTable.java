@@ -3,9 +3,6 @@
 //叫做散列表。
 package com.chaoyue.java;
 
-import javax.print.attribute.Size2DSyntax;
-import javax.print.attribute.standard.ReferenceUriSchemesSupported;
-import java.security.PrivilegedAction;
 import java.util.Scanner;
 
 /**

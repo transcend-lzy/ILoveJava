@@ -26,6 +26,11 @@ import java.security.PublicKey;
 2、判断当前节点右子节点是否为空，不为空就右递归后序查找
 3、判断当前节点相等否，相等就返回，不相等就返回null
 */
+/*
+删除结点：
+要求：如果要删除的节点是叶子节点，就删除该节点
+如果删除的节点是非叶子节点，则删除该子树
+*/
 public class BinaryTreeDemo {
     public static void main(String[] args) {
 

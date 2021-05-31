@@ -19,3 +19,27 @@ public class HeapSort {
     //堆排序方法
     public static void heapSort(int arr[]){
     }
+    //将一个数组（二叉树），调整成一个大顶堆
+
+    /**
+     *将以i对应的非叶子结点的树调整为大顶堆
+     * @param arr 待调整数组
+     * @param i 表示非叶子结点在数组中的索引
+     * @param length 表示对多少个元素继续调整，length逐渐减少
+     */
+    public static void adgustHeap(int arr[],int i ,int length){
+        int temp = arr[i];
+        //j =  i*2 +1  j是i的左子节点
+        for (int j =  i*2 +1; j < length; j = j*2 +1) {
+            if (j +1 < length && arr[j] < arr[j+1]){
+                j++;
+            }
+            if(arr[j] > temp){
+                arr[i] = arr[j];
+                i = j;
+            }else{
+                break;
+            }
+        }
+    }
+}

@@ -5,3 +5,17 @@
 // 直到整个序列有序。
 // 对于升降排序就是不断循环构建大小顶堆，然后把最大（小）的数沉到数组最末端，用到树的思想，但没有写树，而是用的数组的形式
 //
+package com.chaoyue.java;
+
+/**
+ * @author chaoyue
+ * @data2021-05-31 15:30
+ */
+public class HeapSort {
+    public static void main(String[] args) {
+        int arr[] = {4,6,8,5,9};
+
+    }
+    //堆排序方法
+    public static void heapSort(int arr[]){
+    }

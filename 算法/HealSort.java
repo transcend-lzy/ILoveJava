@@ -27,7 +27,7 @@ public class HeapSort {
      * @param i 表示非叶子结点在数组中的索引
      * @param length 表示对多少个元素继续调整，length逐渐减少
      */
-    public static void adgustHeap(int arr[],int i ,int length){
+    public static void adjustHeap(int arr[],int i ,int length){
         int temp = arr[i];
         //j =  i*2 +1  j是i的左子节点
         for (int j =  i*2 +1; j < length; j = j*2 +1) {
@@ -41,5 +41,7 @@ public class HeapSort {
                 break;
             }
         }
+        arr[i] = temp;
+        //for 循环结束，我们将以i为父节点得树得最大值，放在了最顶部
     }
 }

@@ -1,11 +1,7 @@
-//堆排序原理：
-//1、将无序序列构建成一个堆，根据升序降序需求选择大顶堆或小顶堆;
-// 2、将堆顶元素与末尾元素交换，将最大元素"沉"到数组末端;
-// 3、重新调整结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行调整+交换步骤，
-// 直到整个序列有序。
-// 对于升降排序就是不断循环构建大小顶堆，然后把最大（小）的数沉到数组最末端，用到树的思想，但没有写树，而是用的数组的形式
-//
 package com.chaoyue.java;
+
+import java.sql.SQLOutput;
+import java.util.Arrays;
 
 /**
  * @author chaoyue
@@ -14,11 +10,34 @@ package com.chaoyue.java;
 public class HeapSort {
     public static void main(String[] args) {
         int arr[] = {4,6,8,5,9};
+        heapSort(arr);
 
     }
     //堆排序方法
     public static void heapSort(int arr[]){
+        int temp = 0;
+        System.out.println("堆排序:");
+        //第一个for循环是为了将原本无序得二叉树序列转换为大顶堆（若为从大到小排列则转换为小顶堆）
+        for (int i = arr.length /2 - 1; i >= 0; i--) {
+            adjustHeap(arr,i,arr.length);
+        }
+        System.out.println("数组是："+ Arrays.toString(arr));
+        //这个for循环是在已经转换为大顶堆得前提下，不断将剩余数据构成得大顶堆中得最大数取出来
+        //这里下面是从0开始得，是因为原本大顶堆已经构造好了，只有头部得数经过交换不符合大顶堆，所以从0开始找到0
+        //这个序号得数，在新的大顶堆中得位置，并找到新的大顶堆的最大数
+        for (int j = arr.length - 1; j > 0 ; j--) {
+            temp = arr[j];
+            arr[j] = arr[0];
+            arr[0] = temp;
+            adjustHeap(arr,0,j);
+            System.out.println("数组是："+ Arrays.toString(arr));
+        }
+
+        System.out.println("数组是："+ Arrays.toString(arr));
+
     }
+
+
     //将一个数组（二叉树），调整成一个大顶堆
 
     /**

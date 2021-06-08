@@ -57,3 +57,35 @@ public class HuffmanTree {
         return nodes.get(0);
     }
 }
+//为了让Node对象支持排序Collections集合排序
+//要让Node实现Comparable接口
+class Node implements Comparable<Node>{
+    int value;
+    Node left;
+    Node right;
+
+    public Node(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "value=" + value +
+                '}';
+    }
+
+    public int compareTo(Node o){//比较两个node的权值大小
+        return (this.value - o.value);
+        //this.value - o.value表示从小到大，前面加个负号就是从大到小
+    }
+    public void preOrder(){
+        System.out.println(this);
+        if (this.left != null){
+            this.left.preOrder();
+        }
+        if (this.right != null){
+            this.right.preOrder();
+        }
+    }
+}

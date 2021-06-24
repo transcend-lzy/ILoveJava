@@ -39,3 +39,26 @@ add
 5、删除该最小结点
 6、最小结点值赋给删除的结点
 */
+//二叉排序树代码
+//创建二叉排序树
+class BinarySortTree {
+private Node root;
+public Node getRoot() {
+return root;
+}
+//查找要删除的结点
+public Node search(int value) {
+ if(root == null) {
+return null;
+} else {
+return root.search(value);
+}
+}
+//查找父结点
+public Node searchParent(int value) {
+if(root == null) {
+return null;
+} else {
+return root.searchParent(value);
+}
+}
